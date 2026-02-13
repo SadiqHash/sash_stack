@@ -8,8 +8,7 @@ What is sash_stack?
 
 sash_stack is a secure backend foundation designed to be built and validated under sash_trust principles.
 
-→ sash_trust (Security Rules Engine)
-→ sash_stack (System built under those rules)
+→ sash_trust (Security Rules Engine), then sash_stack (System built under those rules)
 
 sash_trust defines what secure means,
 sash_stack implements a real system that follows it.
@@ -98,7 +97,7 @@ We enforce:
   run: poetry run sash-trust run ./app policies/strict.yaml
 ```
 
-If security fails → CI fails.
+If security fails, CI fails.
 Security becomes non-optional.
 
 ---
@@ -110,6 +109,7 @@ sash_stack is designed to be:
 * Clone → Configure → Run → Secure → Extend
 
 Everything is structured, predictable, and security-enforced.
+
 
 
 1. Clone the Repository
@@ -231,9 +231,9 @@ What this does:
 
 If violations are found:
 
-Scan fails
-CI fails
-Pull request blocked
+* Scan fails
+* CI fails
+* PR blocked
 
 Security is not optional.
 
@@ -261,29 +261,47 @@ You would:
 
 1. Create model:
 
+```
 app/models/project.py
+```
+
 
 2. Create schema:
 
+```
 app/schemas/project.py
+```
+
 
 3. Create repository:
 
+```
 app/repositories/project_repository.py
+```
+
 
 4. Create service:
 
+```
 app/services/project_service.py
+```
+
 
 5. Add route:
 
+```
 app/api/routes/project.py
+```
+
 
 6. Register route in main.py
 
+
 7. Generate migration
 
+
 8. Run sash_trust scan
+
 
 This keeps:
 
@@ -310,9 +328,9 @@ sash_trust enforces it.
 
 Together they provide:
 
-Security by design
-Security by enforcement
-Security by automation
+* Security by design
+* Security by enforcement
+* Security by automation
 
 ---
 
@@ -373,6 +391,7 @@ Every contribution must preserve:
 * Deterministic builds
 * CI integrity
 
+---
 
 Contribution Philosophy
 
@@ -387,6 +406,7 @@ Before contributing, understand:
 
 This project prioritizes long-term architectural integrity over quick patches.
 
+---
 
 Local Development Setup
 
@@ -395,6 +415,7 @@ Local Development Setup
 ```
 git clone https://github.com/your_username/sash_stack.git
 ```
+
 
 2. Install Poetry (if not installed)
 
@@ -407,6 +428,7 @@ Verify:
 ```bash
 poetry --version
 ```
+
 
 3. Install All Dependencies (Including Dev Tools)
 
@@ -435,6 +457,7 @@ Or run commands using:
 poetry run <command>
 ```
 
+
 4. Setup Environment File
 
 ```bash
@@ -442,6 +465,7 @@ cp .env.example .env
 ```
 
 Adjust values if needed.
+
 
 5. Run Application Locally (Without Docker)
 
@@ -455,6 +479,7 @@ Or use Docker:
 docker-compose -f docker/docker-compose.yml up --build
 ```
 
+---
 
 Before Submitting a Pull Request
 
@@ -468,6 +493,7 @@ poetry run pytest
 
 All tests must pass.
 
+
 2. Run Linting
 
 ```bash
@@ -476,6 +502,7 @@ poetry run ruff check .
 
 Fix issues before committing.
 
+
 3. Run Type Checking
 
 ```bash
@@ -483,6 +510,7 @@ poetry run mypy app
 ```
 
 Type errors must be resolved.
+
 
 4. Run Security Scan
 
@@ -502,6 +530,7 @@ This ensures:
 
 If this fails, your PR will fail in CI.
 
+---
 
 Architecture Rules for Contributors
 
@@ -526,8 +555,10 @@ Do NOT:
 * Hardcode secrets
 * Bypass validation
 
+---
 
 Contribution Workflow
+
 
 1. Fork repository
 2. Create feature branch
@@ -535,6 +566,7 @@ Contribution Workflow
 ```bash
 git checkout -b feature/your-feature-name
 ```
+
 
 3. Implement changes
 4. Run all checks locally
@@ -544,9 +576,11 @@ git checkout -b feature/your-feature-name
 git commit -m "feat: add meaningful message"
 ```
 
+
 6. Push branch
 7. Open Pull Request
 
+---
 
 CI Enforcement
 
@@ -565,6 +599,7 @@ PR cannot be merged.
 
 Security and architecture standards are automatically enforced.
 
+---
 
 Security Responsibility
 
@@ -576,6 +611,7 @@ All contributions must comply with enforced security policies.
 
 Security violations are treated as breaking changes.
 
+---
 
 Code Quality Standards
 
@@ -586,6 +622,7 @@ Code Quality Standards
 * No commented-out legacy code
 * Maintain separation of concerns
 
+---
 
 Open for Contributors
 
