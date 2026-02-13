@@ -1,15 +1,67 @@
 [project]
-name = "sash-stack"
+name = "sash_stack"
 version = "0.1.0"
 description = "sash_stack secure backend built under sash_trust rules"
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
-license = {text = "MIT"}
+readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
+license = { text = "MIT" }
+
+authors = [
+    { name = "SadiqHash", email = "saddeequjp@gmai.com" }
 ]
 
+keywords = [
+    "fastapi",
+    "security",
+    "backend",
+    "trust",
+    "sash",
+    "web3",
+    "ai",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: FastAPI",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
+
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+
+    "sqlalchemy>=2.0",
+    "psycopg[binary]>=3.1",
+    "alembic>=1.13",
+
+    "pydantic>=2.6",
+
+    "passlib[argon2]>=1.7",
+    "cryptography>=42.0",
+    "python-jose[cryptography]>=3.3",
+
+    "python-dotenv>=1.0",
+
+    "email-validator>=2.1"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+
+    "ruff>=0.3",
+    "black>=24.0",
+    "mypy>=1.8",
+
+    "bandit>=1.7",
+
+    "types-passlib",
+    "types-python-jose",
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
