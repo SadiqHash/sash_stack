@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: sash_stack_db
+    restart: always
+    environment:
+      POSTGRES_USER: sash
+      POSTGRES_PASSWORD: sash_password
+      POSTGRES_DB: sash_stack
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sash_network
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: sash_stack_api
+    restart: always
+    env_file:
+      - ../.env
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    networks:
+      - sash_network
+
+volumes:
+  postgres_data:
+
+networks:
+  sash_network:
