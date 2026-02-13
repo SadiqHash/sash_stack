@@ -8,8 +8,6 @@ What is sash_stack?
 
 sash_stack is a secure backend foundation designed to be built and validated under sash_trust principles.
 
-It is Phase 2 of the Trust Framework:
-
 → sash_trust (Security Rules Engine)
 → sash_stack (System built under those rules)
 
@@ -69,6 +67,7 @@ It scans code using:
 
 sash_stack integrates sash_trust in two ways:
 
+
 1. Local CLI Enforcement
 
 Developers run:
@@ -84,6 +83,7 @@ This ensures:
 * No weak encryption
 * No unsafe config usage
 * No raw password handling
+
 
 2. CI Enforcement (GitHub Actions)
 
@@ -111,31 +111,18 @@ sash_stack is designed to be:
 
 Everything is structured, predictable, and security-enforced.
 
+
 1. Clone the Repository
 
 ```bash
 git clone https://github.com/SadiqHash/sash_stack.git
 ```
-Project structure overview:
-
-app/
-  core/        # Security, config, logging
-  api/         # Routes & dependencies
-  services/    # Business logic
-  repositories/# Database layer
-  models/      # SQLAlchemy models
-  schemas/     # Pydantic schemas
-  db/          # Session & base setup
-docker/
-tests/
-.github/workflows/
-
-This is a layered backend architecture:
 
 * Routes do not touch the database directly
 * Services contain business logic
 * Repositories handle data access
 * Security is centralized in core/
+
 
 2. Configure Environment Variables
 
@@ -163,6 +150,7 @@ Why this matters
 * Configuration is centralized
 * Follows security policy enforced by sash_trust
 
+
 3. Run with Docker
 
 ```
@@ -178,8 +166,9 @@ This starts:
 
 After startup:
 
+```
 http://localhost:8000/docs
-
+```
 You’ll see the automatic Swagger UI provided by FastAPI.
 
 Why Docker?
@@ -194,6 +183,7 @@ Docker ensures:
 
 No “works on my machine” problems.
 
+
 4. Database Migrations (Alembic)
 
 ```bash
@@ -202,6 +192,7 @@ docker exec -it sash_stack_api alembic upgrade head
 ```
 
 This keeps schema versioned and consistent.
+
 
 5. Running Tests
 
@@ -215,6 +206,7 @@ Tests ensure:
 * Business logic correctness
 * API stability
 * Security assumptions remain valid
+
 
 6. Run Security Scan (Critical Step)
 
@@ -249,6 +241,7 @@ Security is not optional.
 
 Typical Development Flow
 
+
 1. Clone project
 2. Create feature branch
 3. Write code inside proper layer
@@ -264,6 +257,7 @@ Example: Adding a New Feature
 Suppose you want to add a new entity called Project.
 
 You would:
+
 
 1. Create model:
 
